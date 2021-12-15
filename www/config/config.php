@@ -1,8 +1,7 @@
 <?php
-use model\User;
 
 return [
     'components' => [
-        'user' => User::class
+        'user' => \models\User::class
     ]
 ];

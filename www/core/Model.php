@@ -2,7 +2,7 @@
 namespace core;
 
 use models\traits\BaseValidators;
-class Model extends BaseClass
+class Model extends BaseObject
 {
     use BaseValidators;
     private $_errors = [];

@@ -1,8 +1,6 @@
 <?php
 namespace core;
 
-use model\User;
-
 class App
 {
     /* @var object компоненты приложения*/
@@ -10,8 +8,10 @@ class App
     /* @var array массив конфигурации приложения*/
     private $_config;
 
-    /* @param array $config старт приложения с учётом конфигурации*/
-    public static function start($config)
+    /**
+     * @param array $config старт приложения с учётом конфигурации
+     */
+    public static function start(array $config) : bool
     {
         session_start();
 

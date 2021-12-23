@@ -11,7 +11,7 @@ class App
     /**
      * @param array $config старт приложения с учётом конфигурации
      */
-    public static function start(array $config) : bool
+    public static function start(array $config)
     {
         session_start();
 
@@ -21,7 +21,6 @@ class App
 
         $router = new Router();
         $router->run();
-        return true;
     }
 
     /*заполнение компонентов*/

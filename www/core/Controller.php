@@ -9,7 +9,7 @@ class Controller
     use AccessAction;
 
     const VIEW_FOLDER = 'views/';
-    const LAYOUT_FOLDER = 'views/layouts';
+    const LAYOUT_FOLDER = 'views/layouts/';
     public $defaultAction = 'index';
     public $authAction = [];
     public $guestAction = [];
@@ -30,6 +30,22 @@ class Controller
             exit();
         }
     }
+    /* // это из другого примера, тоже работает
+     * public function render($page, $data)
+    {
+        return $this->renderLayout($page, $this->renderView($page));
+    }
+    public function renderLayout()
+    {
+        return require ROOT . self::LAYOUT_FOLDER . $this->layout . '.php';
+    }
+    public function renderView($page)
+    {
+        if (file_exists(ROOT . self::VIEW_FOLDER . $page . '.php'))
+        {
+            return include ROOT . self::VIEW_FOLDER . $page . '.php';
+        }
+    }*/
 
     /**
      * @param string $view путь к представлению
@@ -41,7 +57,7 @@ class Controller
         $this->checkAction($view);
         $this->_view = $view;
         $this->_data = $data;
-        return $this->getLayout();
+        return $this->getLayout($this->getView());
     }
 
     public function getLayout()

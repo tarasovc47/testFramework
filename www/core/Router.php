@@ -4,7 +4,11 @@ namespace core;
 
 class Router
 {
-    private $_routes;
+    /**
+     * @var array Массив с маршрутами
+     */
+    private array $_routes;
+
     public function __construct()
     {
         $this->_routes = require ROOT . 'config/routes.php';
@@ -14,9 +18,9 @@ class Router
     {
         $uri = $this->getUri();
         foreach ($this->_routes as $uriPattern => $path) {
-            if (preg_match("~{$uriPattern}~", $uri))
+            if (preg_match($uriPattern, $uri))
             {
-                $internalRoute = preg_replace("~{$uriPattern}~", $path, $uri);
+                $internalRoute = preg_replace($uriPattern, $path, $uri);
                 if ($this->callAction($internalRoute)){
                     return true;
                 }

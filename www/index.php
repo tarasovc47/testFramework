@@ -1,6 +1,7 @@
 <?php
 use core\Autoloader;
 use core\App;
+use core\Controller;
 
 try {
     ini_set('display_errors', 0);
@@ -13,5 +14,6 @@ try {
     Autoloader::register();
     App::start($config);
 } catch (Exception $e){
-    echo 'error';
+    $controller = new Controller();
+    $controller->showError($e->getMessage());
 }

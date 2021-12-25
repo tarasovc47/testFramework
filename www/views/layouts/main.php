@@ -1,2 +1,29 @@
 <?php
-var_dump('main layout');
+/**
+ * @var core\Controller $this
+ */
+
+use core\App;
+
+$isGuest = App::$components->session->isGuest();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+<header>
+    хедер
+</header>
+<div>
+    Контент: <br>
+    <?= $this->getContent() ?>
+</div>
+<footer>
+    футер
+</footer>
+
+</body>
+</html>

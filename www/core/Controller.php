@@ -1,5 +1,4 @@
 <?php
-
 namespace core;
 
 use models\traits\AccessAction;
@@ -57,7 +56,8 @@ class Controller
         $this->checkAction($view);
         $this->_view = $view;
         $this->_data = $data;
-        return $this->getLayout($this->getView());
+        $this->getLayout();
+        return $this->getContent();
     }
 
     public function getLayout()

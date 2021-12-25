@@ -27,7 +27,7 @@ class Request extends BaseObject
         }
         return $_GET;
     }
-    public function getRefferer()
+    public function getReferer()
     {
         return isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/';
     }
